@@ -11,7 +11,8 @@ calcularPuntaje(sabor, presentacion, dificultad):
 Recibe tres números entre 1 y 5 que representan las puntuaciones de una torta y devuelve la suma de esos números (el puntaje total del pastel).
 
 determinarGanador():
-Utiliza la librería readline-sync para pedir al usuario el número de participantes, luego solicita las puntuaciones de cada uno de ellos y usa la función calcularPuntaje para determinar la torta con el mayor puntaje.
+Utiliza la librería readline-sync para pedir al usuario el número de participantes, 
+luego solicita las puntuaciones de cada uno de ellos y usa la función calcularPuntaje para determinar la torta con el mayor puntaje.
 
 *Si lo consideran necesario, pueden implementar funciones extra.
 */
@@ -22,6 +23,12 @@ let sabor: number = 0;
 let presentacion: number = 0;
 let dificultad: number = 0;
 let resultado: number = 0;
+
+// let aux: number = 0;
+// let tortaPuntaje: number = 0;
+// let aux2: number = 0;
+// let tortaPuntaje2: number = 0;
+// let puntajeMasAlto: number = 0;
 
 const CANT_PARTICIPANTES: number = fs.questionInt(
   "Ingrese la cantidad de participantes: "
@@ -49,6 +56,31 @@ function calcularPuntaje(
   total = sabor + presentacion + dificultad;
   return total;
 }
+
+// function determinarGanador(
+//   torta1: number,
+//   tortaPuntaje: number,
+//   torta2: number,
+//   tortaPuntaje2: number,
+//   puntajeAlto: number = 0
+// ) {
+//   let resultado: number;
+//   if (tortaPuntaje > tortaPuntaje2) {
+//     if (tortaPuntaje > puntajeAlto) {
+//       resultado = torta1;
+//       return resultado;
+//     } else {
+//       return puntajeAlto;
+//     }
+//   } else {
+//     if (torta2 > puntajeAlto) {
+//       resultado = torta2;
+//       return resultado;
+//     } else {
+//       return puntajeAlto;
+//     }
+//   }
+// }
 
 // Pidiendo las puntuaciones de sabor, presentación y dificultad.
 while (sabor === 0 && presentacion === 0 && dificultad === 0) {
@@ -80,10 +112,38 @@ while (sabor === 0 && presentacion === 0 && dificultad === 0) {
     }
     resultado = calcularPuntaje(sabor, presentacion, dificultad);
 
+    // if (i % 2 === 0) {
+    //   aux2 = i;
+    //   tortaPuntaje2 = resultado;
+    // } else {
+    //   aux = i;
+    //   tortaPuntaje = resultado;
+    // }
+
+    // if (puntajeMasAlto != 0) {
+    //   puntajeMasAlto = determinarGanador(
+    //     aux,
+    //     tortaPuntaje,
+    //     aux2,
+    //     tortaPuntaje2,
+    //     puntajeMasAlto
+    //   );
+    // } else {
+    //   puntajeMasAlto = determinarGanador(
+    //     aux,
+    //     tortaPuntaje,
+    //     aux2,
+    //     tortaPuntaje2
+    //   );
+    // }
+
     console.log(
       `\tEl puntaje total de la torta numero ${i} es: ${resultado} pts`
     );
     if (i === CANT_PARTICIPANTES) {
+      // console.log(
+      //   `El ganador del concurso es la Torta número ${puntajeMasAlto}`
+      // );
       dibujarLinea(60, true);
     }
   }
