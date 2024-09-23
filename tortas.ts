@@ -57,6 +57,15 @@ function calcularPuntaje(
   return total;
 }
 
+function validarPuntos(puntaje: number) {
+  if (puntaje <= 5 && puntaje >= 1) {
+    return puntaje;
+  } else {
+    puntaje = 0;
+    return puntaje;
+  }
+}
+
 // function determinarGanador(
 //   torta1: number,
 //   tortaPuntaje: number,
@@ -83,68 +92,70 @@ function calcularPuntaje(
 // }
 
 // Pidiendo las puntuaciones de sabor, presentación y dificultad.
-while (sabor === 0 && presentacion === 0 && dificultad === 0) {
-  for (let i: number = 1; i <= CANT_PARTICIPANTES; i++) {
-    dibujarLinea(60, true);
-    console.log(`Ingrese el puntaje de la torta numero ${i}`);
+// while (sabor === 0 && presentacion === 0 && dificultad === 0) {
+for (let i: number = 1; i <= CANT_PARTICIPANTES; i++) {
+  dibujarLinea(120, true);
+  console.log(`Ingrese el puntaje de la torta numero ${i}`);
 
-    console.log("");
-    dibujarLinea(50);
-    sabor = fs.questionInt("-> Inserte el puntaje del sabor: ");
-    dibujarLinea(50);
-    presentacion = fs.questionInt("-> Inserte el puntaje de la presentacion: ");
-    dibujarLinea(50);
-    dificultad = fs.questionInt("-> Inserte el puntaje de la dificultad: ");
-    dibujarLinea(60);
+  console.log("");
+  dibujarLinea(50);
+  sabor = fs.questionInt("-> Inserte el puntaje del sabor: ");
+  dibujarLinea(50);
+  presentacion = fs.questionInt("-> Inserte el puntaje de la presentacion: ");
+  dibujarLinea(50);
+  dificultad = fs.questionInt("-> Inserte el puntaje de la dificultad: ");
+  dibujarLinea(60);
 
-    if (
-      sabor < 1 ||
-      sabor > 5 ||
-      presentacion < 1 ||
-      presentacion > 5 ||
-      dificultad < 1 ||
-      dificultad > 5
-    ) {
-      sabor = 0;
-      presentacion = 0;
-      dificultad = 0;
-      continue;
-    }
-    resultado = calcularPuntaje(sabor, presentacion, dificultad);
+  sabor = validarPuntos(sabor);
+  presentacion = validarPuntos(presentacion);
+  dificultad = validarPuntos(dificultad);
 
-    // if (i % 2 === 0) {
-    //   aux2 = i;
-    //   tortaPuntaje2 = resultado;
-    // } else {
-    //   aux = i;
-    //   tortaPuntaje = resultado;
-    // }
-
-    // if (puntajeMasAlto != 0) {
-    //   puntajeMasAlto = determinarGanador(
-    //     aux,
-    //     tortaPuntaje,
-    //     aux2,
-    //     tortaPuntaje2,
-    //     puntajeMasAlto
-    //   );
-    // } else {
-    //   puntajeMasAlto = determinarGanador(
-    //     aux,
-    //     tortaPuntaje,
-    //     aux2,
-    //     tortaPuntaje2
-    //   );
-    // }
-
+  if (sabor === 0 || presentacion === 0 || dificultad === 0) {
+    dibujarLinea(120, true);
     console.log(
-      `\tEl puntaje total de la torta numero ${i} es: ${resultado} pts`
+      `Uno de los puntajes ingresados no está en el rango de 1 y 5. Ingrese nuevamente los puntajes de la torta numero ${i}.`
     );
-    if (i === CANT_PARTICIPANTES) {
-      // console.log(
-      //   `El ganador del concurso es la Torta número ${puntajeMasAlto}`
-      // );
-      dibujarLinea(60, true);
-    }
+    i--;
+    sabor = 0;
+    presentacion = 0;
+    dificultad = 0;
+    continue;
+  }
+
+  resultado = calcularPuntaje(sabor, presentacion, dificultad);
+
+  // if (i % 2 === 0) {
+  //   aux2 = i;
+  //   tortaPuntaje2 = resultado;
+  // } else {
+  //   aux = i;
+  //   tortaPuntaje = resultado;
+  // }
+
+  // if (puntajeMasAlto != 0) {
+  //   puntajeMasAlto = determinarGanador(
+  //     aux,
+  //     tortaPuntaje,
+  //     aux2,
+  //     tortaPuntaje2,
+  //     puntajeMasAlto
+  //   );
+  // } else {
+  //   puntajeMasAlto = determinarGanador(
+  //     aux,
+  //     tortaPuntaje,
+  //     aux2,
+  //     tortaPuntaje2
+  //   );
+  // }
+
+  console.log(
+    `\tEl puntaje total de la torta numero ${i} es: ${resultado} pts`
+  );
+  if (i === CANT_PARTICIPANTES) {
+    // console.log(
+    //   `El ganador del concurso es la Torta número ${puntajeMasAlto}`
+    // );
+    dibujarLinea(60, true);
   }
 }
