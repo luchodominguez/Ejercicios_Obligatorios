@@ -62,7 +62,10 @@ function validarPuntos(puntaje: number) {
 }
 
 function validarGanador(numeroTorta: number, total: number) {
-  // Verifico si hubo un empate
+  /*
+   * Verifico si el puntaje de los nuevos puntajes agregados es más alto que el que está guardado.
+   * Si es así, re-asigno las variables, si hay empate, las almaceno en otras variables
+   */
   if (total > puntajeGanador) {
     puntajeGanador = total;
     ganador = numeroTorta;
@@ -73,19 +76,19 @@ function validarGanador(numeroTorta: number, total: number) {
 }
 
 function validarEmpate() {
+  // * Verifico si hubo un empate y retorno el string a imprimir al final
   let retorno: string;
   if (puntajeGanador != puntajeEmpate) {
-    retorno = `\t\t\t\t El ganador del concurso es la torta número ${ganador}`;
+    retorno = `\t\t\tEl ganador del concurso es la torta número ${ganador} con un puntaje de ${puntajeGanador}`;
   } else {
-    retorno = `\t\t\tDebido a un empate, las tortas ganadoras son la numero ${ganador} y la numero ${ganadorEmpate}`;
+    retorno = `\t\tDebido a un empate, las tortas ganadoras son la numero ${ganador} y la numero ${ganadorEmpate} con un puntaje de ${puntajeGanador}`;
   }
   return retorno;
 }
 
 /*
-* Pidiendo las puntuaciones de sabor, presentación y dificultad, verificando que estén en el rango de 1 y 5 para luego imprimir el total de cada uno
-- Sé que no era lo pedido, pero quería retornar algo ya que no pude resolver el ejercicio.
-*/
+ * Pidiendo las puntuaciones de sabor, presentación y dificultad, verificando que estén en el rango de 1 y 5 para luego imprimir el/los ganadores
+ */
 for (let i: number = 1; i <= CANT_PARTICIPANTES; i++) {
   dibujarLinea(120, true);
   console.log(`Ingrese el puntaje de la torta numero ${i}`);
