@@ -1,0 +1,2 @@
+- Ejercitación obligatoria de la semana:
+  En la slide 6 sobre arreglos que tienen subida al drive de contenidos encontrarán ejercicios para practicar. Son los que aparecen al final, enmarcados en color naranja. Hagan al menos el primero. Aunque cuantos más hagan, mejor será para ustedes porque asentarán con mayor precisión los contenidos dados. Entreguen a su tutor o tutora o tutore designado, designada o designade o como corno se diga. Como siempre, el plazo de entrega es de una semana. Éxitos!
