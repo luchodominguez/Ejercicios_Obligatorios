@@ -22,10 +22,9 @@ function isTextInPara(fullText: string, searchTerm: string): boolean {
 function howManyTextInPara(fullText: string, searchTerm: string): number {
   let resultado: any;
   fullText = fullText.toLowerCase();
-  resultado = fullText.split(searchTerm, fullText.split(searchTerm).length - 1);
-  return resultado.length;
+  resultado = fullText.split(searchTerm.toLowerCase());
+  return resultado.length - 1;
 }
-
 console.log(paragraph);
 
 dibujarLinea(160, true);
