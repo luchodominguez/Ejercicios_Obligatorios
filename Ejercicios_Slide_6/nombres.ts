@@ -7,7 +7,7 @@ en el arreglo. Imprimir el arreglo y si está o no en
 */
 
 import * as fs from "readline-sync";
-import { dibujarLinea } from "../dibujarLinea";
+import { dibujarLinea } from "../modulos/dibujarLinea";
 console.clear();
 
 const CANT: number = 5;
