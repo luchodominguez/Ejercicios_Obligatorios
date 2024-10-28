@@ -1,5 +1,5 @@
 import * as fs from "readline-sync";
-import { dibujarLinea } from "../modulos/dibujarLinea";
+import { dibujarLinea } from "../Modulos/dibujarLinea";
 console.clear();
 
 let user: string;
