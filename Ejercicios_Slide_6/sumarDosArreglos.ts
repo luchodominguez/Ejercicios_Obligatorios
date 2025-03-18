@@ -5,7 +5,7 @@ de dos arreglos y guardar el resultado en otro arreglo
 vectores los carga el usuario
 */
 import * as fs from "readline-sync";
-import { dibujarLinea } from "../modulos/dibujarLinea";
+import { dibujarLinea } from "../Modulos/dibujarLinea";
 console.clear();
 
 const DIM: number = 6;

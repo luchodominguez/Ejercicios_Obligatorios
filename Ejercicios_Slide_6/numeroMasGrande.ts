@@ -7,7 +7,7 @@ más grande del arreglo e imprimirlo por consola
 global y pasarlo a una función para determinar si el
 número es par o impar
  */
-import { dibujarLinea } from "../modulos/dibujarLinea";
+import { dibujarLinea } from "../Modulos/dibujarLinea";
 console.clear();
 
 // * Array con resultado impar:

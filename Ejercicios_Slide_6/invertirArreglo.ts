@@ -6,7 +6,7 @@ por el usuario
 */
 
 import * as fs from "readline-sync";
-import { dibujarLinea } from "../modulos/dibujarLinea";
+import { dibujarLinea } from "../Modulos/dibujarLinea";
 console.clear();
 
 const DIM: number = fs.questionInt("Ingrese la dimension del arreglo: ");
